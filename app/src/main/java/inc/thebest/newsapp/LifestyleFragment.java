@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -144,8 +145,8 @@ public class LifestyleFragment extends Fragment {
     //creates url which uses the current date
     private String makeURL(){
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date();
-        String todayDate = dateFormat.format(date);
+        //Date date = new Date();
+        String todayDate = dateFormat.format(yesterday());
 
         StringBuilder url = new StringBuilder();
         url.append("http://content.guardianapis.com/search?from-date=");
@@ -153,6 +154,12 @@ public class LifestyleFragment extends Fragment {
         url.append("&q=lifestyle&api-key=b7933e6a-83fc-4375-9c0e-b6257f27b298");
 
         return new String(url);
+    }
+
+    private Date yesterday() {
+        final Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -1);
+        return cal.getTime();
     }
 
 
