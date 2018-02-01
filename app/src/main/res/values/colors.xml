@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#f44242</color>
     <color name="bNavBackground">#6d6d6d</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>
